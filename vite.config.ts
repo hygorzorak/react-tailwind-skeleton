@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.tsx',
-      name: 'ReactSkeleton',
-      fileName: (format) => `react-skeleton.${format}.js`,
+      name: 'ReactTailwindSkeleton',
+      fileName: (format) => `react-tailwind-skeleton.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

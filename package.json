@@ -1,10 +1,10 @@
 {
-  "name": "react-skeleton",
+  "name": "react-tailwind-skeleton",
   "description": "Skeleton component build using Tailwind",
   "author": "Hygor Zorak",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hygorzorak/react-skeleton.git"
+    "url": "https://github.com/hygorzorak/react-tailwind-skeleton.git"
   },
   "private": false,
   "version": "1.0.0",
@@ -43,12 +43,13 @@
     "vite": "^5.3.1",
     "vite-plugin-dts": "^3.9.1"
   },
-  "main": "dist/react-skeleton.umd.js",
-  "module": "dist/react-skeleton.es.js",
+  "main": "dist/react-tailwind-skeleton.umd.js",
+  "module": "dist/react-tailwind-skeleton.es.js",
   "types": "dist/index.d.ts",
   "keywords": [
     "react",
     "react-skeleton",
+    "react-tailwind-skeleton",
     "loading",
     "tailwind"
   ]

@@ -1,4 +1,4 @@
-# React Skeleton Components
+# ReactTailwindSkeleton Components
 
 A React component library for displaying skeleton loaders for tables and other UI elements. This package provides two main components: `TableSkeleton` and `Skeleton`. These components can be customized with various properties to fit different use cases.
 
@@ -7,7 +7,7 @@ A React component library for displaying skeleton loaders for tables and other U
 To install the package, run:
 
 ```bash
-npm install react-skeleton
+npm install react-tailwind-skeleton
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ You can import the components in your React application as follows:
 
 ```jsx
 import React from "react";
-import { Skeleton, TableSkeleton } from "react-skeleton";
+import { Skeleton, TableSkeleton } from "react-tailwind-skeleton";
 
 const App = () => {
   return (
