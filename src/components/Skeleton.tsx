@@ -1,38 +1,54 @@
 import React from 'react';
-
-import { cn } from '../utilities';
 import { ClassNameValue } from 'tailwind-merge';
 
+import { cn } from '../utilities';
+
 type SkeletonProps = {
+    className?: ClassNameValue;
+    htmlTag?: keyof JSX.IntrinsicElements;
+    isLoading?: boolean;
+    children?: React.ReactNode;
     width?: string;
     height?: string;
     shape?: 'rectangle' | 'circle';
     disableAnimation?: boolean;
     borderRadius?: string;
-    className?: ClassNameValue
-}
+};
 
 export const Skeleton: React.FC<SkeletonProps> = ({
+    className,
+    htmlTag = 'span',
+    isLoading = true,
+    children,
     width = '100%',
-    height = '100%',
+    height = '1rem',
     shape = 'rectangle',
     disableAnimation = false,
     borderRadius,
-    className,
 }) => {
+    const Tag = htmlTag;
+
     const skeletonClasses = cn(
-        'bg-gray-300',
+        'bg-gray-300 dark:bg-gray-700',
         shape === 'circle' ? 'rounded-full' : 'rounded',
-        !disableAnimation && {
-            'animate-pulse': true,
-        },
-        className,
+        !disableAnimation && 'animate-pulse',
+        className
     );
 
-    return (
-        <div
-            className={skeletonClasses}
-            style={{ width, height, borderRadius }}
-        />
-    );
+    if (isLoading) {
+        return (
+            <Tag
+                className={skeletonClasses}
+                style={{
+                    width,
+                    height: children ? undefined : height,
+                    borderRadius,
+                }}
+            >
+                {children ? <div style={{ visibility: 'hidden' }}>{children}</div> : null}
+            </Tag>
+        );
+    }
+
+    return <>{children}</>;
 };

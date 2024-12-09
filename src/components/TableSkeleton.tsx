@@ -1,7 +1,7 @@
 import React from 'react';
 import { ClassNameValue } from 'tailwind-merge';
 
-import { Skeleton } from './Skeleton'; // Adjust the import path according to your project structure
+import { Skeleton } from './Skeleton';
 
 type TableSkeletonProps = {
     columns: number;
