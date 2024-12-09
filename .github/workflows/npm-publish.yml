@@ -1,0 +1,46 @@
+name: npm-publish
+
+on:
+  push:
+    branches:
+      - main # Only run the action on pushes to the main branch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          registry-url: "https://registry.npmjs.org/"
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Bump version automatically.
+      # NOTE: Update the user name and email to match your GitHub profile
+      - name: Bump version and create a Git tag
+        id: bump_version
+        run: |
+          git config user.name "github-actions"  
+          git config user.email "github-actions@github.com"
+
+          # Use npm version to bump the version automatically based on commit messages (e.g., patch, minor, major)
+          npm version patch -m "chore: bump version to %s"
+
+          # Push the new version and tag to GitHub
+          git push --follow-tags
+
+      # Step 6: Publish the package to npm
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
