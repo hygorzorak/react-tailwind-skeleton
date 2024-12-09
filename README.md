@@ -1,5 +1,7 @@
 # ReactTailwindSkeleton Components
 
+[![NPM Version](https://img.shields.io/npm/v/npm-package-template.svg)](https://www.npmjs.com/package/react-tailwind-skeleton)
+
 A React component library for displaying skeleton loaders for tables and other UI elements. This package provides two main components: `TableSkeleton` and `Skeleton`. These components can be customized with various properties to fit different use cases.
 
 ## Installation
