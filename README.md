@@ -21,27 +21,6 @@ You can import the components in your React application as follows:
 ```jsx
 import React from "react";
 import { Skeleton, TableSkeleton } from "react-tailwind-skeleton";
-
-const App = () => {
-  return (
-    <div>
-      <TableSkeleton
-        columns={3}
-        rows={5}
-        headerTitles={["Name", "Email", "Phone"]}
-      />
-      <Skeleton
-        width="100px"
-        height="100px"
-        shape="circle"
-        animate={true}
-        borderRadius="50%"
-      />
-    </div>
-  );
-};
-
-export default App;
 ```
 
 ### TableSkeleton Props
@@ -56,11 +35,15 @@ The `TableSkeleton` component accepts the following props:
 
 The `Skeleton` component accepts the following props:
 
-- `width` (`string`, optional): Width of the skeleton element. Defaults to `100%`.
-- `height` (`string`, optional): Height of the skeleton element. Defaults to `100%`.
-- `shape` (`'rectangle' | 'circle'`, optional): Shape of the skeleton element. Defaults to `rectangle`.
-- `animate` (`boolean`, optional): Whether to animate the skeleton element. Defaults to `true`.
-- `borderRadius` (`string`, optional): Custom border radius for the skeleton element. If not provided, it uses Tailwind's default `rounded` class.
+className (ClassNameValue, optional): Additional Tailwind CSS classes for styling.
+- `htmlTag` (keyof JSX.IntrinsicElements, optional): The HTML tag to use for the skeleton element. Defaults to span.
+- `isLoading` (boolean, optional): Determines whether the skeleton loader is visible. Defaults to true.
+- `children` (React.ReactNode, optional): Content to render once loading is complete. If provided, the content will be hidden during loading.
+- `width` (string, optional): Width of the skeleton element. Defaults to 100%.
+- `height` (string, optional): Height of the skeleton element. Defaults to 1rem. Ignored if children is provided.
+- `shape` ('rectangle' | 'circle', optional): Shape of the skeleton element. Defaults to rectangle.
+- `disableAnimation` (boolean, optional): Disables the pulse animation. Defaults to false.
+- `borderRadius` (string, optional): Custom border radius for the skeleton element. Overrides the default rounded or rounded-full classes.
 
 ### Example
 
