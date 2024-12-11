@@ -13,18 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org/"
 
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Step 4: Bump version automatically
       - name: Bump version and create a Git tag
         id: bump_version
         env:
@@ -32,6 +36,10 @@ jobs:
         run: |
           git config user.name "github-actions"  
           git config user.email "github-actions@github.com"
+
+          # Fetch and rebase to incorporate remote changes
+          git fetch origin
+          git rebase origin/main
 
           # Use npm version to bump the version automatically
           npm version patch -m "chore: bump version to %s"
@@ -42,6 +50,7 @@ jobs:
           # Push the new version and tag to GitHub
           git push --follow-tags
 
+      # Step 5: Publish the package to npm
       - name: Publish to npm
         run: npm publish
         env:
