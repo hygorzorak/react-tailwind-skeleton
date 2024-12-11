@@ -4,7 +4,7 @@
   "author": "Hygor Zorak",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hygorzorak/react-tailwind-skeleton.git"
+    "url": "git+https://github.com/hygorzorak/react-tailwind-skeleton.git"
   },
   "private": false,
   "version": "2.0.1",
